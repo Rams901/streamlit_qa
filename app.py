@@ -29,7 +29,7 @@ import os
 
 st.write(
     "Has environment variables been set:",
-    os.environ["OPENAI_API_KEY"] == st.secrets["OPENAI_API_KEY"],
+    os.environ["OPENAI_API_KEY"] == st.secrets["OPENAI_KEY"],
 )
 st.title("Question-Answering RentGPT")
 
