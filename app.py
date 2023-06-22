@@ -159,9 +159,9 @@ def answer_question(question: str, context: str):
             model='gpt-3.5-turbo',
         openai_api_key = st.secrets('OPENAI_KEY')
         )
-    prompt = PromptTemplate(
-            input_variables=["question", "docs"],
-            template="""
+        prompt = PromptTemplate(
+        input_variables=["question", "docs"],
+        template="""
             As a consultant, your role is to assist the user in analyzing your mortgage documents and providing advice based on the information the user provides.
             You will help the user with questions related to your insurance, property tax, trends, and cost rates using the documents you provide.
             Please share your mortgage documents, including the mortgage agreement, insurance policies, and any other relevant paperwork.
@@ -174,10 +174,10 @@ def answer_question(question: str, context: str):
         )
 
 
-    # llm = BardLLM()
-    chain = LLMChain(llm=llm, prompt = prompt)
-    # input = {"question": question, "context": context}
-    return chain.run(question = question, docs = context)
+        # llm = BardLLM()
+        chain = LLMChain(llm=llm, prompt = prompt)
+        # input = {"question": question, "context": context}
+        return chain.run(question = question, docs = context)
 
 
 @st.cache(allow_output_mutation=True)
