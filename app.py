@@ -129,7 +129,8 @@ def get_pipeline():
 
     llm = ChatOpenAI(
             temperature=0,
-            model='gpt-3.5-turbo'
+            model='gpt-3.5-turbo',
+        openai_api_key = st.secrets('OPENAI_KEY')
         )
     prompt = PromptTemplate(
             input_variables=["question", "docs"],
