@@ -118,39 +118,39 @@ def remove_short_sentences(df):
 #     return context
 
 
-@st.cache(allow_output_mutation=True)
-def get_pipeline():
-    # modelname = "deepset/bert-base-cased-squad2"
-    # model_qa = BertForQuestionAnswering.from_pretrained(modelname)
-    # # model_qa.save_pretrained(modelname)
-    # tokenizer = AutoTokenizer.from_pretrained("tokenizer-deepset")
-    # # tokenizer.save_pretrained("tokenizer-" + modelname)
-    # qa = pipeline("question-answering", model=model_qa, tokenizer=tokenizer)
+# @st.cache(allow_output_mutation=True)
+# def get_pipeline():
+#     # modelname = "deepset/bert-base-cased-squad2"
+#     # model_qa = BertForQuestionAnswering.from_pretrained(modelname)
+#     # # model_qa.save_pretrained(modelname)
+#     # tokenizer = AutoTokenizer.from_pretrained("tokenizer-deepset")
+#     # # tokenizer.save_pretrained("tokenizer-" + modelname)
+#     # qa = pipeline("question-answering", model=model_qa, tokenizer=tokenizer)
 
-    llm = ChatOpenAI(
-            temperature=0,
-            model='gpt-3.5-turbo',
-        openai_api_key = st.secrets('OPENAI_KEY')
-        )
-    prompt = PromptTemplate(
-            input_variables=["question", "docs"],
-            template="""
-            As a consultant, your role is to assist the user in analyzing your mortgage documents and providing advice based on the information the user provides.
-            You will help the user with questions related to your insurance, property tax, trends, and cost rates using the documents you provide.
-            Please share your mortgage documents, including the mortgage agreement, insurance policies, and any other relevant paperwork.
-            Once you have reviewed the documents, you will be able to offer detailed analysis and guidance.
-            Answer the following question: {question}
-            Use the following documents: {docs}
-            Only use the factual information from the documents to answer the question.
-            If you feel like you don't have enough information to answer the question, say "I don't know".
-            """,
-        )
+#     llm = ChatOpenAI(
+#             temperature=0,
+#             model='gpt-3.5-turbo',
+#         openai_api_key = st.secrets('OPENAI_KEY')
+#         )
+#     prompt = PromptTemplate(
+#             input_variables=["question", "docs"],
+#             template="""
+#             As a consultant, your role is to assist the user in analyzing your mortgage documents and providing advice based on the information the user provides.
+#             You will help the user with questions related to your insurance, property tax, trends, and cost rates using the documents you provide.
+#             Please share your mortgage documents, including the mortgage agreement, insurance policies, and any other relevant paperwork.
+#             Once you have reviewed the documents, you will be able to offer detailed analysis and guidance.
+#             Answer the following question: {question}
+#             Use the following documents: {docs}
+#             Only use the factual information from the documents to answer the question.
+#             If you feel like you don't have enough information to answer the question, say "I don't know".
+#             """,
+#         )
 
 
-    # llm = BardLLM()
-    chain = LLMChain(llm=llm, prompt = prompt)
+#     # llm = BardLLM()
+#     chain = LLMChain(llm=llm, prompt = prompt)
 
-    return chain
+#     return chain
 
 @st.cache(allow_output_mutation=True)
 def answer_question(question: str, context: str) -> str:
