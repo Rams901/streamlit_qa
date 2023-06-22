@@ -152,7 +152,7 @@ def remove_short_sentences(df):
 
 #     return chain
 
-@st.cache(allow_output_mutation=True)
+
 def answer_question(question: str, context: str) -> str:
         llm = ChatOpenAI(
             temperature=0,
