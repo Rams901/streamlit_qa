@@ -153,7 +153,7 @@ def get_pipeline():
     return chain
 
 @st.cache(allow_output_mutation=True)
-def answer_question(question: str, context: str):
+def answer_question(question: str, context: str): -> str
         llm = ChatOpenAI(
             temperature=0,
             model='gpt-3.5-turbo',
@@ -177,7 +177,8 @@ def answer_question(question: str, context: str):
         # llm = BardLLM()
         chain = LLMChain(llm=llm, prompt = prompt)
         # input = {"question": question, "context": context}
-        return chain.run(question = question, docs = context)
+        response = chain.run(question = question, docs = context)
+        return str(response)
 
 
 @st.cache(allow_output_mutation=True)
