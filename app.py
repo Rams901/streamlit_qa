@@ -157,7 +157,7 @@ def answer_question(question: str, context: str) -> str:
         llm = ChatOpenAI(
             temperature=0,
             model='gpt-3.5-turbo',
-        openai_api_key = st.secrets('OPENAI_KEY')
+        
         )
         prompt = PromptTemplate(
         input_variables=["question", "docs"],
