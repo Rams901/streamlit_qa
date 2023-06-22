@@ -17,3 +17,10 @@ streamlit==1.16.0
 tika==2.6.0
 tqdm==4.64.1
 wget==3.2
+unstructured
+pdf2image
+langchain
+gradio
+openai
+sentence_transformers
+FAISS-gpu
