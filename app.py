@@ -152,7 +152,7 @@ def get_pipeline():
 
     return chain
 
-
+@st.cache(allow_output_mutation=True)
 def answer_question(pipeline, question: str, context: str):
     # input = {"question": question, "context": context}
     return pipeline.run(question = question, docs = context)
