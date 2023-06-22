@@ -54,7 +54,7 @@ def extract_text_from_pdfs(pdf_files):
                 # Add the page text to the overall text
                 text += page_text
             # Add the file name and the text to the data frame
-            df = pd.concat(df, pd.DataFrame([{"file": pdf_file.name, "text": text}]), ignore_index = True)
+            df = pd.concat((df, pd.DataFrame([{"file": pdf_file.name, "text": text}])), ignore_index = True)
     # Return the data frame
     return df
 
