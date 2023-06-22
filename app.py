@@ -23,9 +23,8 @@ import PyPDF2
 import streamlit as st
 
 from io import BytesIO
-from dotenv import load_dotenv
 
-load_dotenv()
+
 st.title("Question-Answering RentGPT")
 
 
