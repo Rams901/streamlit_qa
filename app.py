@@ -153,7 +153,7 @@ def get_pipeline():
     return chain
 
 
-def answer_question(pipeline, question: str, context: str) -> Dict:
+def answer_question(pipeline, question: str, context: str):
     # input = {"question": question, "context": context}
     return pipeline.run(question = question, docs = context)
 
@@ -183,6 +183,7 @@ def start_app():
         # context = create_context()
         pipeline = get_pipeline()
     return pipeline
+
 
 
 pdf_files = st.file_uploader(
